@@ -1,5 +1,5 @@
 <?php
-     define('SITE_URL','http://http://k0c4w8480gcw48kswg4cw0kc.146.190.103.211.sslip.io/gymko/');
+    define('SITE_URL', 'http://k0c4w8480gcw48kswg4cw0kc.146.190.103.211.sslip.io/gymko/');
     define('ABOUT_IMG_PATH', SITE_URL . 'images/about/');
     define('CAROUSEL_IMG_PATH', SITE_URL . 'images/carousel/');
     define('TRAINORS_IMG_PATH', SITE_URL . 'images/trainors/');
