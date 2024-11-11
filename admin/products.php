@@ -1,13 +1,13 @@
 <?php
-
 require('inc/essentials.php');
+$hname= getenv('DB_HOST');
+   $uname = getenv('DB_USERNAME');
+ $pass = getenv('DB_PASSWORD');
+     $db = getenv('DB_DATABASE');
+    $port = getenv('DB_PORT') ?: '3306';
 
-$db_host = "localhost";
-$db_user = "root";  
-$db_pass = "";  // Use your actual password
-$db_name = "gymko";  // Use your actual database name
 try {
-    $conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass);
+    $conn = new PDO("mysql:host=$hname;dbname=$db", $uname, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
