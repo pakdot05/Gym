@@ -11,8 +11,7 @@
     define('USERS_FOLDER', 'users/');
     define('TRAINORS_FOLDER', 'trainors/');
 
-    // Start session at the beginning
-    session_start();
+
 
     function adminLogin()
     {
