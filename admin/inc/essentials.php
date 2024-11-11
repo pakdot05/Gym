@@ -5,7 +5,8 @@
     define('TRAINORS_IMG_PATH', SITE_URL . 'images/trainors/');
 
     // BACK END PURPOSE
-  define('UPLOAD_IMAGE_PATH', '/'http://k0c4w8480gcw48kswg4cw0kc.146.190.103.211.sslip.io/gymko/images/'); 
+ define('UPLOAD_IMAGE_PATH', 'http://k0c4w8480gcw48kswg4cw0kc.146.190.103.211.sslip.io/gymko/images/'); // Replace with the correct absolute path
+
     define('ABOUT_FOLDER', 'about/');
     define('CAROUSEL_FOLDER', 'carousel/');
     define('USERS_FOLDER', 'users/');
