@@ -37,4 +37,25 @@
             </div>
         alert;
     }
+
+    // Example of uploading an image
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $target_file = UPLOAD_IMAGE_PATH . basename($_FILES['image']['name']);
+
+        // Check if directory exists, create it if not
+        if (!is_dir(UPLOAD_IMAGE_PATH)) {
+            mkdir(UPLOAD_IMAGE_PATH, 0755);
+        }
+
+        // Check if file already exists
+        if (file_exists($target_file)) {
+            echo "File already exists";
+        } else {
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                echo "The file ". basename( $_FILES['image']['name']). " has been uploaded.";
+            } else {
+                echo "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
 ?>
