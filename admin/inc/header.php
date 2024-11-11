@@ -71,7 +71,7 @@
                         <a id="product-link" class="link" href="products.php">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a id="patient-link" class="link" href="Product_Sales.php">Product_Sale</a>
+                        <a id="patient-link" class="link" href="product_sales.php">Product_Sold</a>
                     </li>
                     <li class="nav-item">
                         <a id="trainors-link" class="link" href="trainors.php">Trainor</a>
