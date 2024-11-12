@@ -9,7 +9,6 @@
     $contact_s = mysqli_fetch_assoc(select($contact_q,$values,'i'));
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
