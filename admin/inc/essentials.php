@@ -6,7 +6,7 @@
     define('CAROUSEL_IMG_PATH', SITE_URL . 'images/carousel/');
     define('TRAINORS_IMG_PATH', SITE_URL . 'images/trainors/');
     define('UPLOAD_IMAGE_PATH', '/app/gymko/images/'); // Updated with a server file path
-    ...
+    
 ?>
 
 
