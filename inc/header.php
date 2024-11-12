@@ -6,7 +6,6 @@
     $contact_q = "SELECT * FROM `settings` WHERE `settings_id`=?";
     $values = [1];
     $contact_s = mysqli_fetch_assoc(select($contact_q,$values,'i'));
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
