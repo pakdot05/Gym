@@ -1,8 +1,14 @@
 <?php
+    session_start(); // Move this to the very top of your file
+
     define('SITE_URL', 'http://k0c4w8480gcw48kswg4cw0kc.146.190.103.211.sslip.io/gymko/');
     define('ABOUT_IMG_PATH', SITE_URL . 'images/about/');
     define('CAROUSEL_IMG_PATH', SITE_URL . 'images/carousel/');
     define('TRAINORS_IMG_PATH', SITE_URL . 'images/trainors/');
+    define('UPLOAD_IMAGE_PATH', '/app/gymko/images/'); // Updated with a server file path
+    ...
+?>
+
 
     // BACK END PURPOSE
  define('UPLOAD_IMAGE_PATH', 'http://k0c4w8480gcw48kswg4cw0kc.146.190.103.211.sslip.io/gymko/images/'); // Replace with the correct absolute path
