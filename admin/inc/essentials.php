@@ -15,18 +15,19 @@ define('CAROUSEL_FOLDER', 'carousel/');
 define('USERS_FOLDER', 'users/');
 define('TRAINORS_FOLDER', 'trainors/');
 
+// Admin login function
 function adminLogin() {
     if (!(isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] === true)) {
-        header('Location: index.php');
+        echo "<script>window.location.href='index.php';</script>";
         exit;
     }
 }
 
+// Redirect function
 function redirect($url) {
-    header("Location: $url");
+    echo "<script>window.location.href='$url';</script>";
     exit;
 }
-
 
 // Alert function
 function alert($type, $msg) {
