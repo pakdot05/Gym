@@ -1,5 +1,8 @@
 <?php
-// Start session at the very beginning of the file, ensuring no whitespace or output before this
+// Start output buffering
+ob_start();
+
+// Start session at the very beginning of the file
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
