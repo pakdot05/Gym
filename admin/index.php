@@ -1,13 +1,22 @@
 <?php
-    require('inc/essentials.php');
-    require('inc/db_config.php');
+        if (isset($_POST['login'])) {
+            $frm_data = filteration($_POST);
+            
+            $query = "SELECT * FROM `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
+            $values = [$frm_data['admin_name'], $frm_data['admin_pass']];
 
-    // No need for session_start() here since it’s handled in essentials.php
-    if (isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] === true) {
-        redirect('dashboard.php');
-    }
-?>
-
+            $res = select($query, $values, "ss");
+            if ($res->num_rows == 1) {
+                $row = mysqli_fetch_assoc($res);
+                $_SESSION['adminLogin'] = true;
+                $_SESSION['adminId'] = $row['admin_id'];
+                redirect('dashboard.php');
+            } else {
+                alert('error', 'Login Unsuccessful!');
+            }
+        }
+    ?>
+    <?php require('inc/scripts.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,26 +51,5 @@
             </div>
         </form>
     </div>
-
-    <?php
-        if (isset($_POST['login'])) {
-            $frm_data = filteration($_POST);
-            
-            $query = "SELECT * FROM `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
-            $values = [$frm_data['admin_name'], $frm_data['admin_pass']];
-
-            $res = select($query, $values, "ss");
-            if ($res->num_rows == 1) {
-                $row = mysqli_fetch_assoc($res);
-                $_SESSION['adminLogin'] = true;
-                $_SESSION['adminId'] = $row['admin_id'];
-                redirect('dashboard.php');
-            } else {
-                alert('error', 'Login Unsuccessful!');
-            }
-        }
-    ?>
-  
-    <?php require('inc/scripts.php'); ?>
 </body>
 </html>
