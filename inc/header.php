@@ -1,5 +1,4 @@
 <?php
-
     $contact_q = "SELECT * FROM `contact_details` WHERE `contact_id`=?";
     $values = [1];
     $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
