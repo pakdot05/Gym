@@ -2,8 +2,8 @@
     require('inc/essentials.php');
     require('inc/db_config.php');
 
-    session_start();
-    if((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin']==true)){
+    // No need for session_start() here since it’s handled in essentials.php
+    if (isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] === true) {
         redirect('dashboard.php');
     }
 ?>
@@ -18,20 +18,16 @@
     <?php require('inc/links.php'); ?>
 
     <style>
-        div.login-form{
-
+        div.login-form {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 400px;
-
         }
     </style>
-
 </head>
 <body class="bg-light">
-
     <div class="login-form text-center rounded bg-white shadow overflow-hidden">
         <form method="POST">
             <h4 class="bg-dark text-white py-3">ADMIN LOGIN PANEL</h4>
@@ -48,26 +44,22 @@
     </div>
 
     <?php
-
-        if(isset($_POST['login']))
-        {
+        if (isset($_POST['login'])) {
             $frm_data = filteration($_POST);
             
-            $query = "SELECT * FROM   `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
-            $values = [$frm_data['admin_name'],$frm_data['admin_pass']];
+            $query = "SELECT * FROM `admin_cred` WHERE `admin_name`=? AND `admin_pass`=?";
+            $values = [$frm_data['admin_name'], $frm_data['admin_pass']];
 
-            $res = select($query,$values,"ss");
-            if($res->num_rows==1){
+            $res = select($query, $values, "ss");
+            if ($res->num_rows == 1) {
                 $row = mysqli_fetch_assoc($res);
                 $_SESSION['adminLogin'] = true;
                 $_SESSION['adminId'] = $row['admin_id'];
                 redirect('dashboard.php');
-            }
-            else{
-                alert('error','Login Unsucessful!');
+            } else {
+                alert('error', 'Login Unsuccessful!');
             }
         }
-    
     ?>
   
     <?php require('inc/scripts.php'); ?>
